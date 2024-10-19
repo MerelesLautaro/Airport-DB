@@ -19,21 +19,29 @@ public class ClassService implements IClassService{
     @Override
     public Class saveClass(Class aClass) {
         return classRepository.save(aClass);
+
+        // INSERT INTO `classes` (`id`, `name`) VALUES ('id', 'name');
     }
 
     @Override
     public List<Class> getClasses() {
         return classRepository.findAll();
+
+        // SELECT * FROM `classes`;
     }
 
     @Override
     public Optional<Class> findClass(Long id) {
         return classRepository.findById(id);
+
+        // SELECT * FROM `classes` WHERE `id` = id;
     }
 
     @Override
     public void deleteClass(Long id) {
         classRepository.deleteById(id);
+
+        // DELETE FROM classes WHERE `classes`.`id` = id"
     }
 
     @Override
@@ -43,5 +51,7 @@ public class ClassService implements IClassService{
         NullAwareBeanUtils.copyNonNullProperties(aClass,aClassEdit);
 
         return this.saveClass(aClassEdit);
+
+        // UPDATE `classes` SET `name` = 'name' WHERE `classes`.`id` = id;
     }
 }

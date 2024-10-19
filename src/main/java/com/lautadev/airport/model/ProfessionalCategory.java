@@ -16,4 +16,9 @@ public class ProfessionalCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    // CREATE TABLE professionals_categories (
+    //    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    //    name VARCHAR(255)
+    //);
 }

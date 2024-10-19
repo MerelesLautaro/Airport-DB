@@ -16,4 +16,9 @@ public class Airport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    // CREATE TABLE Airports (
+    //    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    //    name VARCHAR(255)
+    //);
 }

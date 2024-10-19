@@ -19,21 +19,29 @@ public class AirportService implements IAirportService{
     @Override
     public Airport saveAirport(Airport airport) {
         return airportRepository.save(airport);
+
+        // INSERT INTO `Airports` (`id`, `name`) VALUES ('id', 'name');
     }
 
     @Override
     public List<Airport> getAirports() {
         return airportRepository.findAll();
+
+        // SELECT * FROM `Airports`;
     }
 
     @Override
     public Optional<Airport> findAirport(Long id) {
         return airportRepository.findById(id);
+
+        // SELECT * FROM `Airports` WHERE `id` = id;
     }
 
     @Override
     public void deleteAirport(Long id) {
         airportRepository.deleteById(id);
+
+        // DELETE FROM `Airports` WHERE `id` = id;
     }
 
     @Override
@@ -43,5 +51,7 @@ public class AirportService implements IAirportService{
         NullAwareBeanUtils.copyNonNullProperties(airport,airportEdit);
 
         return this.saveAirport(airportEdit);
+
+        // UPDATE `Airports` SET `name` = 'name' WHERE `id` = id;
     }
 }

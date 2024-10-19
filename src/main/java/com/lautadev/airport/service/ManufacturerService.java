@@ -19,21 +19,29 @@ public class ManufacturerService implements IManufacturerService{
     @Override
     public Manufacturer saveManufacturer(Manufacturer manufacturer) {
         return manufacturerRepository.save(manufacturer);
+
+        // INSERT INTO `manufacturers` (`id`, `name`) VALUES ('id', 'name');
     }
 
     @Override
     public List<Manufacturer> getManufacturers() {
         return manufacturerRepository.findAll();
+
+        // SELECT * FROM `manufacturers`;
     }
 
     @Override
     public Optional<Manufacturer> findManufacturer(Long id) {
         return manufacturerRepository.findById(id);
+
+        // SELECT * FROM `manufacturers` WHERE `id` = id;
     }
 
     @Override
     public void deleteManufacturer(Long id) {
         manufacturerRepository.deleteById(id);
+
+        // DELETE FROM `manufacturers` WHERE `id` = id;
     }
 
     @Override
@@ -44,5 +52,7 @@ public class ManufacturerService implements IManufacturerService{
         NullAwareBeanUtils.copyNonNullProperties(manufacturer,manufacturerEdit);
 
         return this.saveManufacturer(manufacturerEdit);
+
+        // UPDATE `manufacturers` SET `name` = 'name' WHERE `id` = id;
     }
 }

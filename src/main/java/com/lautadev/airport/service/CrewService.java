@@ -1,7 +1,6 @@
 package com.lautadev.airport.service;
 
 import com.lautadev.airport.model.Crew;
-import com.lautadev.airport.repository.IClassRepository;
 import com.lautadev.airport.repository.ICrewRepository;
 import com.lautadev.airport.throwable.EntityNotFoundException;
 import com.lautadev.airport.util.NullAwareBeanUtils;
@@ -20,21 +19,29 @@ public class CrewService implements ICrewService{
     @Override
     public Crew saveCrew(Crew crew) {
         return crewRepository.save(crew);
+
+        // INSERT INTO `crews` (`id`) VALUES ('id');
     }
 
     @Override
     public List<Crew> getCrews() {
         return crewRepository.findAll();
+
+        // SELECT * FROM `crews`;
     }
 
     @Override
     public Optional<Crew> findCrew(Long id) {
         return crewRepository.findById(id);
+
+        // SELECT * FROM `crews` WHERE `id` = id;
     }
 
     @Override
     public void deleteCrew(Long id) {
         crewRepository.deleteById(id);
+
+        // DELETE FROM `crews` WHERE `id` = id;
     }
 
     @Override
@@ -44,5 +51,7 @@ public class CrewService implements ICrewService{
         NullAwareBeanUtils.copyNonNullProperties(crew,crewEdit);
 
         return this.saveCrew(crewEdit);
+
+        // UPDATE `crews` SET ... WHERE `id` = id;
     }
 }

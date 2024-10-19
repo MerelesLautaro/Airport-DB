@@ -17,6 +17,11 @@ public class Crew {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "crew", cascade = CascadeType.ALL)
+    @OneToMany
     private List<Employed> employees;
+
+    // CREATE TABLE crews (
+    //    id BIGINT PRIMARY KEY AUTO_INCREMENT
+    //);
+
 }

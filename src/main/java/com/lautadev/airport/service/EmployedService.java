@@ -19,21 +19,30 @@ public class EmployedService implements IEmployedService{
     @Override
     public Employed saveEmployed(Employed employed) {
         return employedRepository.save(employed);
+
+        // INSERT INTO `employees` (`id`, `name`, `lastname`, `professionalCategory_id`, `crew_id`)
+        // VALUES ('id', 'name', 'lastname', 'professionalCategory_id', 'crew_id');
     }
 
     @Override
     public List<Employed> getEmployees() {
         return employedRepository.findAll();
+
+        // SELECT * FROM `employees`;
     }
 
     @Override
     public Optional<Employed> findEmployed(Long id) {
         return employedRepository.findById(id);
+
+        // SELECT * FROM `employees` WHERE `id` = id;
     }
 
     @Override
     public void deleteEmployed(Long id) {
         employedRepository.deleteById(id);
+
+        // DELETE FROM `employees` WHERE `id` = id;
     }
 
     @Override
@@ -43,5 +52,9 @@ public class EmployedService implements IEmployedService{
         NullAwareBeanUtils.copyNonNullProperties(employed,employedEdit);
 
         return this.saveEmployed(employedEdit);
+
+        // UPDATE `employees` SET `name` = 'name', `lastname` = 'lastname',
+        // `professionalCategory_id` = 'professionalCategory_id', `crew_id` = 'crew_id'
+        // WHERE `id` = id;
     }
 }

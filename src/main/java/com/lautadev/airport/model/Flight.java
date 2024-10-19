@@ -24,4 +24,16 @@ public class Flight {
     private Airport destination_airport;
     @ManyToOne
     private Plane plane;
+
+    // CREATE TABLE flights (
+    //    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    //    date DATETIME,
+    //    origin_airport_id BIGINT,
+    //    destination_airport_id BIGINT,
+    //    plane_id BIGINT,
+    //    FOREIGN KEY (origin_airport_id) REFERENCES Airports(id),
+    //    FOREIGN KEY (destination_airport_id) REFERENCES Airports(id),
+    //    FOREIGN KEY (plane_id) REFERENCES planes(id)
+    //);
+
 }

@@ -19,21 +19,30 @@ public class ProfessionalCategoryService implements IProfessionalCategoryService
     @Override
     public ProfessionalCategory saveProfessionalCategory(ProfessionalCategory professionalCategory) {
         return professionalCategoryRepository.save(professionalCategory);
+
+        // INSERT INTO `professionals_categories` (`id`, `name`)
+        // VALUES ('id', 'name');
     }
 
     @Override
     public List<ProfessionalCategory> getProfessionalsCategories() {
         return professionalCategoryRepository.findAll();
+
+        // SELECT * FROM `professionals_categories`;
     }
 
     @Override
     public Optional<ProfessionalCategory> findProfessionalCategory(Long id) {
         return professionalCategoryRepository.findById(id);
+
+        // SELECT * FROM `professionals_categories` WHERE `id` = id;
     }
 
     @Override
     public void deleteProfessionalCategory(Long id) {
         professionalCategoryRepository.deleteById(id);
+
+        // DELETE FROM `professionals_categories` WHERE `id` = id;
     }
 
     @Override
@@ -44,5 +53,7 @@ public class ProfessionalCategoryService implements IProfessionalCategoryService
         NullAwareBeanUtils.copyNonNullProperties(professionalCategory,professionalCategoryEdit);
 
         return this.saveProfessionalCategory(professionalCategoryEdit);
+
+        // UPDATE `professionals_categories` SET `name` = 'name' WHERE `id` = id;
     }
 }

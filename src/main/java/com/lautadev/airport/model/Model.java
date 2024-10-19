@@ -16,4 +16,9 @@ public class Model {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    // CREATE TABLE models (
+    //    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    //    name VARCHAR(255)
+    //);
 }

@@ -18,7 +18,13 @@ public class Employed {
     private String name;
     private String lastname;
     @ManyToOne
-    private ProfessionalCategory professionalCategory;
-    @ManyToOne
-    private Crew crew;
+    private Position position;
+
+    // CREATE TABLE employees (
+    //    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    //    name VARCHAR(255),
+    //    lastname VARCHAR(255),
+    //    position_id BIGINT,
+    //    FOREIGN KEY (position_id) REFERENCES positions(id)
+    //);
 }

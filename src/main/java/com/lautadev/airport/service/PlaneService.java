@@ -19,21 +19,32 @@ public class PlaneService implements IPlaneService{
     @Override
     public Plane savePlane(Plane plane) {
         return planeRepository.save(plane);
+
+        // INSERT INTO `planes` (`id`, `tuition`, `capacity`, `autonomy`,
+        // `manufacturer_id`, `model_id`, `crew_id`)
+        // VALUES ('id', 'tuition', 'capacity', 'autonomy',
+        // 'manufacturer_id', 'model_id', 'crew_id');
     }
 
     @Override
     public List<Plane> getPlanes() {
         return planeRepository.findAll();
+
+        // SELECT * FROM `planes`;
     }
 
     @Override
     public Optional<Plane> findPlane(Long id) {
         return planeRepository.findById(id);
+
+        // SELECT * FROM `planes` WHERE `id` = id;
     }
 
     @Override
     public void deletePlane(Long id) {
         planeRepository.deleteById(id);
+
+        // DELETE FROM `planes` WHERE `id` = id;
     }
 
     @Override
@@ -43,5 +54,10 @@ public class PlaneService implements IPlaneService{
         NullAwareBeanUtils.copyNonNullProperties(plane,planeEdit);
 
         return this.savePlane(planeEdit);
+
+        // UPDATE `planes` SET `tuition` = 'tuition', `capacity` = 'capacity',
+        // `autonomy` = 'autonomy', `manufacturer_id` = 'manufacturer_id',
+        // `model_id` = 'model_id', `crew_id` = 'crew_id'
+        // WHERE `id` = id;
     }
 }

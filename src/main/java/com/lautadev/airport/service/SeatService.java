@@ -19,21 +19,30 @@ public class SeatService implements ISeatService{
     @Override
     public Seat saveSeat(Seat seat) {
         return seatRepository.save(seat);
+
+        // INSERT INTO `seats` (`id`, `num_seat`, `available`, `plane_id`)
+        // VALUES ('id', 'num_seat', 'available', 'plane_id');
     }
 
     @Override
     public List<Seat> getSeats() {
         return seatRepository.findAll();
+
+        // SELECT * FROM `seats`;
     }
 
     @Override
     public Optional<Seat> findSeat(Long id) {
         return seatRepository.findById(id);
+
+        // SELECT * FROM `seats` WHERE `id` = id;
     }
 
     @Override
     public void deleteSeat(Long id) {
         seatRepository.deleteById(id);
+
+        // DELETE FROM `seats` WHERE `id` = id;
     }
 
     @Override
@@ -43,5 +52,8 @@ public class SeatService implements ISeatService{
         NullAwareBeanUtils.copyNonNullProperties(seat,seatEdit);
 
         return this.saveSeat(seatEdit);
+
+        // UPDATE `seats` SET `num_seat` = 'num_seat', `available` = 'available',
+        // `plane_id` = 'plane_id' WHERE `id` = id;
     }
 }

@@ -16,4 +16,10 @@ public class Class {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    // CREATE TABLE classes (
+    //    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    //    name VARCHAR(255)
+    //);
+
 }

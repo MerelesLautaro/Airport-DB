@@ -19,21 +19,30 @@ public class FlightService implements IFlightService{
     @Override
     public Flight saveFlight(Flight flight) {
         return flightRepository.save(flight);
+
+        // INSERT INTO `flights` (`id`, `date`, `origin_airport_id`, `destination_airport_id`, `plane_id`)
+        // VALUES ('id', 'date', 'origin_airport_id', 'destination_airport_id', 'plane_id');
     }
 
     @Override
     public List<Flight> getFlights() {
         return flightRepository.findAll();
+
+        // SELECT * FROM `flights`;
     }
 
     @Override
     public Optional<Flight> findFlight(Long id) {
         return flightRepository.findById(id);
+
+        // SELECT * FROM `flights` WHERE `id` = id;
     }
 
     @Override
     public void deleteFlight(Long id) {
         flightRepository.deleteById(id);
+
+        // DELETE FROM `flights` WHERE `id` = id;
     }
 
     @Override
@@ -43,5 +52,11 @@ public class FlightService implements IFlightService{
         NullAwareBeanUtils.copyNonNullProperties(flight,flightEdit);
 
         return this.saveFlight(flightEdit);
+
+        // UPDATE `flights` SET `date` = 'date',
+        // `origin_airport_id` = 'origin_airport_id',
+        // `destination_airport_id` = 'destination_airport_id',
+        // `plane_id` = 'plane_id'
+        // WHERE `id` = id;
     }
 }

@@ -18,4 +18,12 @@ public class Seat {
     private boolean available;
     @ManyToOne
     private Plane plane;
+
+    // CREATE TABLE seats (
+    //    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    //    num_seat INT,
+    //    available BOOLEAN,
+    //    plane_id BIGINT,
+    //    FOREIGN KEY (plane_id) REFERENCES planes(id)
+    //);
 }

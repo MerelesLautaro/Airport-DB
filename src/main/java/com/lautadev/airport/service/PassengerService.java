@@ -19,21 +19,30 @@ public class PassengerService implements IPassengerService{
     @Override
     public Passenger savePassenger(Passenger passenger) {
         return passengerRepository.save(passenger);
+
+        // INSERT INTO `passengers` (`id`, `name`, `lastname`, `dni`, `seat_id`, `class_id`)
+        // VALUES ('id', 'name', 'lastname', 'dni', 'seat_id', 'class_id');
     }
 
     @Override
     public List<Passenger> getPassengers() {
         return passengerRepository.findAll();
+
+        // SELECT * FROM `passengers`;
     }
 
     @Override
     public Optional<Passenger> findPassenger(Long id) {
         return passengerRepository.findById(id);
+
+        // SELECT * FROM `passengers` WHERE `id` = id;
     }
 
     @Override
     public void deletePassenger(Long id) {
         passengerRepository.deleteById(id);
+
+        // DELETE FROM `passengers` WHERE `id` = id;
     }
 
     @Override
@@ -43,5 +52,9 @@ public class PassengerService implements IPassengerService{
         NullAwareBeanUtils.copyNonNullProperties(passenger,passengerEdit);
 
         return this.savePassenger(passengerEdit);
+
+        // UPDATE `passengers` SET `name` = 'name', `lastname` = 'lastname',
+        // `dni` = 'dni', `seat_id` = 'seat_id', `class_id` = 'class_id'
+        // WHERE `id` = id;
     }
 }

@@ -19,21 +19,29 @@ public class ModelService implements IModelService{
     @Override
     public Model saveModel(Model model) {
         return modelRepository.save(model);
+
+        // INSERT INTO `models` (`id`, `name`) VALUES ('id', 'name');
     }
 
     @Override
     public List<Model> getModels() {
         return modelRepository.findAll();
+
+        // SELECT * FROM `models`;
     }
 
     @Override
     public Optional<Model> findModel(Long id) {
         return modelRepository.findById(id);
+
+        // SELECT * FROM `models` WHERE `id` = id;
     }
 
     @Override
     public void deleteModel(Long id) {
         modelRepository.deleteById(id);
+
+        // DELETE FROM `models` WHERE `id` = id;
     }
 
     @Override
@@ -43,5 +51,7 @@ public class ModelService implements IModelService{
         NullAwareBeanUtils.copyNonNullProperties(model,modelEdit);
 
         return this.saveModel(modelEdit);
+
+        // UPDATE `models` SET `name` = 'name' WHERE `id` = id;
     }
 }
