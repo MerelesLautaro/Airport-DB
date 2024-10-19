@@ -23,3 +23,31 @@ Construye el modelo conceptual y el modelo lógico correspondientes al enunciado
 3. Crear un lote de prueba para realizar las operaciones CRUD. (SQL)
 4. Seleccionar un par de tablas representativas para realizar un cursor en un stored procedure. (SQL)
 5. Seleccionar un par de tablas representativas para realizar un trigger. (SQL)
+
+## Diagrama Entidad-Relación
+<img src="img/diagramEntityRelationship.jpg" style="width:99%;"/>
+
+##  Creación del Trigger
+#### ¿Que es un Trigger?
+Un trigger (o desencadenador) es un conjunto de instrucciones que se ejecutan automáticamente en respuesta a
+ciertos eventos en una base de datos. Estos eventos pueden incluir operaciones como inserciones, actualizaciones
+o eliminaciones en una tabla específica.
+
+<img src="img/createTrigger.jpg" style="width:99%;"/>
+
+Trigger que actualiza la disponibilidad del asiento, inicialmente se lo persiste en TRUE, cuando se le asigna el asiento
+a un pasajero (passenger) el estado se cambia a FALSE indicando que ya no esta disponible para otro pasajero.
+
+## Creación del Store Procedure
+#### ¿Que es un Store Procedure?
+Un stored procedure (procedimiento almacenado) es un conjunto de instrucciones SQL que se guardan en la base de datos y se pueden ejecutar de manera repetida. 
+Los stored procedures permiten encapsular lógica de negocio, manipulación de datos y operaciones complejas en un único bloque de código, que se puede invocar desde aplicaciones o desde otros procedimientos.
+
+<img src="img/storeProcedure.jpg" style="width:99%;"/>
+
+### Llamada al Store Procedure
+
+<img src="img/callToStoreProcedure.jpg" style="width:99%;"/>
+
+En este ejemplo se insertaría un nuevo pasajero, asignandole un asiento con el ID 4 y la clase con el ID 1, y asegurando que el asiento esté disponible antes de la inserción.
+
