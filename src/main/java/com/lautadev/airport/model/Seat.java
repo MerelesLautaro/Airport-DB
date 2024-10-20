@@ -25,6 +25,7 @@ public class Seat {
     //    available BOOLEAN,
     //    plane_id BIGINT,
     //    FOREIGN KEY (plane_id) REFERENCES planes(id)
+
     //);
 
 
